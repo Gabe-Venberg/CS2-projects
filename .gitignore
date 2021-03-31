@@ -31,7 +31,18 @@ hs_err_pid*
 #uploading only code, not compile settings.
 *.xml
 *.properties
+*.html
+*.js
+*.css
+*.png
+*.mf
+*.TXT
+*.netbeans*
+
 
 #word docs for assignment submission (I have no clue why our professor insited on copying and pasting source code into *word docs*.
 *.docx
 *.doc
+/Lab108-VenbergGE/nbproject/private/
+/Lab108-VenbergGE/build/
+/Lab108-VenbergGE/dist/
