@@ -27,7 +27,7 @@ public class Client {
         
         
         //set up stuff needed for test.
-        final int BSTSize = 10;
+        final int BSTSize = 1000000;
         long startTime;
         long endTime;
         String[][] data = new String[7][2];
@@ -36,27 +36,34 @@ public class Client {
         BinarySearchTree testTree = new BinarySearchTree();
         startTime=System.nanoTime();
         for(int i=0; i<BSTSize; i++){
-            System.out.println("test1,"+i);
             testTree.insert(i);
         }
-        data[0][1] = String.format("%,d", testTree.hight(testTree.root()));
-        System.out.println("test2");
+        data[0][1] = String.format("%,d", testTree.hight());
         endTime=System.nanoTime();
         data[0][0]=String.format("%,d", endTime-startTime);
+        
         testTree.inorderTraversal(testTree.root());
         System.out.println();
+        testTree.preorderTraversal(testTree.root());
+        System.out.println();
+        testTree.postorderTraversal(testTree.root());
+        System.out.println();
+        
         
         //decending order test
         testTree = new BinarySearchTree();
         startTime=System.nanoTime();
         for(int i=BSTSize-1; i>=0; i--){
-            System.out.println("test3,"+i);
             testTree.insert(i);
         }
-        data[1][1] = String.format("%,d", testTree.hight(testTree.root()));
-        System.out.println("test4,");
+        data[1][1] = String.format("%,d", testTree.hight());
         endTime=System.nanoTime();
         data[1][0]=String.format("%,d", endTime-startTime);
+
+        testTree.preorderTraversal(testTree.root());
+        System.out.println();
+        testTree.postorderTraversal(testTree.root());
+        System.out.println();
         testTree.inorderTraversal(testTree.root());
         System.out.println();
         
@@ -73,15 +80,11 @@ public class Client {
             
             startTime=System.nanoTime();
             for(int j=0; j<uniqueNumbers.length; j++){
-                System.out.println("test5,"+i+","+j);
                 testTree.insert(uniqueNumbers[j]);
             }
-            data[i+2][1]=String.format("%,d", testTree.hight(testTree.root()));
-            System.out.println("test6,"+i);
+            data[i+2][1]=String.format("%,d", testTree.hight());
             endTime=System.nanoTime();
             data[i+2][0]=String.format("%,d", endTime-startTime);
-            testTree.inorderTraversal(testTree.root());
-            System.out.println();
         }
         
         String[] colHeaders = {"Time taken", "Tree hight"};
